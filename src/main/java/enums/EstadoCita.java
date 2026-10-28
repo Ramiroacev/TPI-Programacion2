@@ -3,9 +3,20 @@ package enums;
 
 
 public enum EstadoCita {
-    PROGRAMADA,
-    EN_CURSO,
-    COMPLETADA,
-    CANCELADA,
-    NO_ASISTIO;
+    PROGRAMADA("Programada"),
+    EN_CURSO("En Curso"),
+    COMPLETADA("Completada"),
+    CANCELADA("Cancelada"),
+    NO_ASISTIO("No Asistio");
+    
+    private String descripcion;
+
+    private EstadoCita(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
 }

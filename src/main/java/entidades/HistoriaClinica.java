@@ -1,41 +1,65 @@
 
 package entidades;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HistoriaClinica {
-    private final int anioCreacion = LocalDate.now().getYear();
-    private String diagnostico;
-    private String Tratamiento;
-    private String alergia;
+    private String numeroHistoria; 
     private Paciente paciente;
+    private LocalDateTime fechaCreacion;
+    private List<String> diagnosticos;
+    private List<String> tratamientos;
+    private List<String> alergias;
     
+        
     // Creamos el constructor sin modificador de acceso para que solo
     // las clases del paquete puedan acceder a el y que no sea publico.
      HistoriaClinica(Paciente paciente) {
         this.paciente = paciente;
+        this.fechaCreacion = LocalDateTime.now();        
+        this.numeroHistoria = this.generarNumeroHistoria();
+        this.diagnosticos = new ArrayList<>();
+        this.tratamientos = new ArrayList<>();
+        this.alergias = new ArrayList<>();
+    }
+     
+     private String generarNumeroHistoria() {
+         return "HC-" + this.paciente.getDni() + "-" + this.fechaCreacion.getYear();
+     }
+
+    public String getNumeroHistoria() {
+        return numeroHistoria;
     }
 
-    public Paciente getPaciente (){
+    public Paciente getPaciente() {
         return paciente;
     }
     
-    public String getNumeroHistoria() {
-        return "HC-" + paciente.getDni() + "-" + anioCreacion;
+    public void agregarDiagnostico(String diagnostico) {
+        this.diagnosticos.add(diagnostico);
     }
     
-    public void agregarDiagnostico (String nuevoDiagnostico) {
-        this.diagnostico = nuevoDiagnostico;
+     public void agregarTratamiento(String tratamiento) {
+        this.tratamientos.add(tratamiento);
     }
-    
-    public void agregarTratamiento (String nuevoTratamiento) {
-        this.Tratamiento = nuevoTratamiento;
+     
+     public void agregarAlergia(String alergia) {
+        this.alergias.add(alergia);
     }
-    
-    public void agregarAlergia (String nuevaAlergia) {
-        this.alergia = nuevaAlergia;
+
+    public List<String> getDiagnosticos() {
+        return diagnosticos;
     }
-    
+
+    public List<String> getTratamientos() {
+        return tratamientos;
+    }
+
+    public List<String> getAlergias() {
+        return alergias;
+    }   
     
 }

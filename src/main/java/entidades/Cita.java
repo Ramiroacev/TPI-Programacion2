@@ -13,5 +13,49 @@ public class Cita {
     private double costo;
     private EstadoCita estado;
     private String observaciones;
+
+    public Cita(Paciente paciente, Medico medico, Sala sala, LocalDateTime fechaHora, double costo) {
+        this.paciente = paciente;
+        this.medico = medico;
+        this.sala = sala;
+        this.fechaHora = fechaHora;
+        this.costo = costo;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public EstadoCita getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoCita estado) {
+        this.estado = estado;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }    
     
 }
