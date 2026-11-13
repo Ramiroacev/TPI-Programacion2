@@ -7,7 +7,7 @@ public enum EstadoCita {
     EN_CURSO("En Curso"),
     COMPLETADA("Completada"),
     CANCELADA("Cancelada"),
-    NO_ASISTIO("No Asistio");
+    NO_ASISTIO("No Asistió");
     
     private String descripcion;
 

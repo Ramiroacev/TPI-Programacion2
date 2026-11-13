@@ -15,11 +15,17 @@ public class Cita {
     private String observaciones;
 
     public Cita(Paciente paciente, Medico medico, Sala sala, LocalDateTime fechaHora, double costo) {
+        Validaciones.noNulo(paciente, "Para crear una nueva cita se necesita un paciente");
+        Validaciones.noNulo(medico, "Para crear una nueva cita se necesita un medico");
+        Validaciones.noNulo(sala, "Para crear una nueva cita se necesita una sala");
+        Validaciones.noNulo(fechaHora, "Para crear una nueva cita se necesita una fecha y hora");
         this.paciente = paciente;
         this.medico = medico;
         this.sala = sala;
         this.fechaHora = fechaHora;
         this.costo = costo;
+        this.estado = EstadoCita.PROGRAMADA;
+        this.observaciones = "";
     }
 
     public Paciente getPaciente() {
@@ -45,8 +51,11 @@ public class Cita {
     public EstadoCita getEstado() {
         return estado;
     }
-
+    
+    // Si se quiere cambiar el estado y el mismo es nulo se lanza una excepcion 
+    // y el estado no cambia
     public void setEstado(EstadoCita estado) {
+        Validaciones.noNulo(estado, "El estado de la cita no puede ser nulo");
         this.estado = estado;
     }
 
@@ -55,7 +64,7 @@ public class Cita {
     }
 
     public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+        this.observaciones = (observaciones == null) ? "" : observaciones;
     }    
     
 }

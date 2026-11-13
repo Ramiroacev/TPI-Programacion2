@@ -3,12 +3,23 @@ package enums;
 
 
 public enum TipoSangre {
-    A_POSITIVO,
-    A_NEGATICO,
-    B_POSITIVO, 
-    B_NEGATIVO,
-    AB_POSITIVO,
-    AB_NEGATIVO,
-    O_POSITIVO,
-    O_NEGATIVO;
+    A_POSITIVO("A+"),
+    A_NEGATIVO("A-"),
+    B_POSITIVO("B+"), 
+    B_NEGATIVO("B-"),
+    AB_POSITIVO("AB+"),
+    AB_NEGATIVO("AB-"),
+    O_POSITIVO("O+"),
+    O_NEGATIVO("O-");
+    
+    private String descripcion;
+
+    private TipoSangre(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }   
+    
 }

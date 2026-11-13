@@ -1,4 +1,3 @@
-/home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/MainPruebas.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Cita.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Departamento.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/HistoriaClinica.java
@@ -8,9 +7,11 @@
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Paciente.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Persona.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Sala.java
+/home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/entidades/Validaciones.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/enums/EspecialidadMedica.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/enums/EstadoCita.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/enums/TipoSangre.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/excepciones/CitaException.java
-/home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/servicios/CitaCervice.java
+/home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/main/MainPruebas.java
 /home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/servicios/CitaManager.java
+/home/ramiro/NetBeansProjects/TPI-Programacion2/src/main/java/servicios/CitaService.java

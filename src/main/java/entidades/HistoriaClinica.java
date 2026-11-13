@@ -3,6 +3,7 @@ package entidades;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -18,6 +19,7 @@ public class HistoriaClinica {
     // Creamos el constructor sin modificador de acceso para que solo
     // las clases del paquete puedan acceder a el y que no sea publico.
      HistoriaClinica(Paciente paciente) {
+        Validaciones.noNulo(paciente, "Para poder dar de alta la historia clinica el paciente no puede ser nulo");
         this.paciente = paciente;
         this.fechaCreacion = LocalDateTime.now();        
         this.numeroHistoria = this.generarNumeroHistoria();
@@ -26,10 +28,6 @@ public class HistoriaClinica {
         this.alergias = new ArrayList<>();
     }
      
-     private String generarNumeroHistoria() {
-         return "HC-" + this.paciente.getDni() + "-" + this.fechaCreacion.getYear();
-     }
-
     public String getNumeroHistoria() {
         return numeroHistoria;
     }
@@ -39,27 +37,36 @@ public class HistoriaClinica {
     }
     
     public void agregarDiagnostico(String diagnostico) {
-        this.diagnosticos.add(diagnostico);
+        agregarSiNoEstaVacio(diagnosticos, diagnostico);
     }
     
      public void agregarTratamiento(String tratamiento) {
-        this.tratamientos.add(tratamiento);
+        agregarSiNoEstaVacio(tratamientos, tratamiento);
     }
      
      public void agregarAlergia(String alergia) {
-        this.alergias.add(alergia);
+        agregarSiNoEstaVacio(alergias, alergia);
     }
 
     public List<String> getDiagnosticos() {
-        return diagnosticos;
+        return Collections.unmodifiableList(diagnosticos);
     }
 
     public List<String> getTratamientos() {
-        return tratamientos;
+        return Collections.unmodifiableList(tratamientos);
     }
 
     public List<String> getAlergias() {
-        return alergias;
+        return Collections.unmodifiableList(alergias);
     }   
     
+     private String generarNumeroHistoria() {
+         return "HC-" + this.paciente.getDni() + "-" + this.fechaCreacion.getYear();
+     }
+     
+     private void agregarSiNoEstaVacio(List<String> lista, String texto){
+         if(texto != null && !texto.trim().isEmpty()){
+             lista.add(texto);
+         }
+     }
 }
